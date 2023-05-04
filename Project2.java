@@ -93,10 +93,10 @@ public class Project2 {
         }
     
 
-        for(int i=1; i<sittplatser.length; i++){
+        for(int i=0; i<sittplatser.length; i++){
             if (sittplatser[i] == 0){
                 sittplatser[i] = omvandla;
-                System.out.println("Du har plats "+i);
+                System.out.println("Du har plats "+(i+1));
                 break;
             }
         }
@@ -106,6 +106,10 @@ public class Project2 {
     }
 
     //kollar lediga platser
+    /*sätter antal lediga platser till 0, därefter loppar man igenom platserna. Om platsen är lika med 0 ökar antalet platser med 1.
+      om antal platser är lika med 0 printas det ut att bussen är full och annars så printas antalet tillängliga platser
+      alltså de somhar värdet 1.
+    */
     static void ledigaplatser (int [] sittplatser){
         int ledigaplatser = 0;
 
@@ -159,14 +163,13 @@ public class Project2 {
                 System.out.println("Nu är din plats avbokad");
                 scan.nextLine();
                 scan.nextLine();
-            }
-            else{
-                System.out.println("Du har ingen bokning");
-                scan.nextLine();
-                scan.nextLine();
-                break;
-            }
+                return;
+            }   
         }
+        System.out.println("Du har ingen bokning");
+        scan.nextLine();
+        scan.nextLine();
+      
     }
 
     static int Hittaplats(){
@@ -177,7 +180,7 @@ public class Project2 {
 
         for (int i = 0; i < sittplatser.length; i++){
             if (sittplatser[i] == personnummer){
-                System.out.println("du har bokad plats: "+i);
+                System.out.println("du har bokad plats: "+(i+1));
                 scan.nextLine();
                 return i;
             }   
